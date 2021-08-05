@@ -1,23 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import Sidebar from './Components/Shared/Sidebar'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import 'devextreme/dist/css/dx.light.css';
+import 'bootstrap'
+
+
+// PAGES
+import First from "./pages/First";
+import Second from "./pages/Second";
+import Third from "./pages/Third";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React b12
-        </a>
-      </header>
+    <div>
+     <Router>
+        <Sidebar />
+        <Switch>
+          <Route path="/" exact component={First} />
+          <Route path="/Reports" component={Second} />
+          <Route path="/Products" component={Third} />
+        </Switch>
+      </Router>
     </div>
   );
 }
